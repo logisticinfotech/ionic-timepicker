@@ -1,0 +1,135 @@
+:host {
+    ion-header {
+        height: 48px;
+
+        ion-toolbar {
+            --background: var(--ion-color-primary);
+            height: 100%;
+            align-items: center;
+            display: flex;
+            color: var(--ion-color-primary-contrast);
+
+            ion-title {
+                font-size: 20px;
+                font-weight: bold;
+                text-align: center;
+
+                @media (min-width: 768px) {
+                    font-size: 22px;
+                }
+            }
+        }
+    }
+
+    ion-footer {
+        height: 44px;
+
+        ion-toolbar {
+            height: 100%;
+            --border-width: 0;
+            --padding-top: 0px;
+            --padding-bottom: 0px;
+            --padding-start: 0px;
+            --padding-end: 0px;
+
+            // .toolbar-container {
+            //     height: 100%;
+            // }
+
+            .dp-btn-set-close-in-reverse {
+                flex-direction: row-reverse;
+            }
+
+            ion-button {
+                --border-radius: 0;
+                height: 44px;
+                margin: 0;
+
+                &:focus {
+                    outline: none;
+                }
+
+                &.activated {
+                    --background-activated: var(--ion-color-primary-tint);
+                    --color-activated: white
+                }
+            }
+        }
+    }
+
+    .swiper-slide-active {
+        color: var(--ion-color-primary) !important;
+        font-size: 20px !important;
+    }
+
+    .tp-default-slide {
+        color: #adadad;
+        font-size: 16px;
+    }
+
+    .tp-slide-container {
+        padding: 5px !important;
+        position: relative;
+
+        ion-slides {
+            height: 165px;
+        }
+
+        .tp-colon {
+            font-style: bold;
+            font-weight: bold;
+            margin-bottom: 3px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+
+    .tp-active {
+        position: absolute;
+        // z-index: 0;
+        top: 76px;
+        left: 5px;
+        width: 300px;
+        height: 33px;
+        background-color: #D3D3D3;
+    }
+
+    .tp-slide-container, .tp-active, ion-footer {
+        opacity: 0;
+    }
+
+    .isReady {
+        opacity: 1;
+    -webkit-transition: opacity 0.4s ease-in;
+       -moz-transition: opacity 0.4s ease-in;
+        -ms-transition: opacity 0.4s ease-in;
+         -o-transition: opacity 0.4s ease-in;
+            transition: opacity 0.4s ease-in;
+    }
+
+    .loader {
+        border: 5px solid #f3f3f3;
+        border-radius: 50%;
+        border-top: 5px solid var(--ion-color-primary);
+        width: 50px;
+        height: 50px;
+        -webkit-animation: 2s linear infinite spin;
+        animation: 2s linear infinite spin;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin: -25px 0 0 -25px;
+      }
+
+      /* Safari */
+      @-webkit-keyframes spin {
+        0% { -webkit-transform: rotate(0deg); }
+        100% { -webkit-transform: rotate(360deg); }
+      }
+
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+}

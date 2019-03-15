@@ -1,0 +1,84 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      {{mainObj?.titleLabel}}
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+
+<ion-content scrollX="false" scrollY="false" >
+  <!-- <div class="loader" *ngIf="!isReady"></div> -->
+
+  <div class="tp-active" [ngClass]="{'isReady': isReady}"></div>
+
+  <ion-grid class="tp-slide-container" [ngClass]="{'isReady': isReady}">
+    <ion-row>
+      <ion-col>
+        <ion-slides #sliderHours pager="false" [options]="slideOptsHours" (ionSlideWillChange)="onChangeHoursSlide($event)">
+          <ion-slide *ngFor="let hour of hoursArray; let i = index;" class="tp-default-slide">
+            {{ hour }}
+          </ion-slide>
+        </ion-slides>
+      </ion-col>
+
+      <ion-col size="1" class="tp-colon" *ngIf="minutesArray?.length > 0">
+        <ion-label>:</ion-label>
+      </ion-col>
+      <ion-col *ngIf="minutesArray?.length > 0">
+        <ion-slides #sliderMinutes pager="false" [options]="slideOptsMinutes" (ionSlideWillChange)="onChangeMinutesSlide($event)">
+          <ion-slide *ngFor="let minute of minutesArray; let i = index;" class="tp-default-slide">
+            {{ minute }}
+          </ion-slide>
+        </ion-slides>
+      </ion-col>
+
+      <ion-col size="1" class="tp-colon" *ngIf="secondsArray?.length > 0">
+        <ion-label>:</ion-label>
+      </ion-col>
+      <ion-col *ngIf="secondsArray?.length > 0">
+        <ion-slides #sliderSeconds pager="false" [options]="slideOptsSeconds" (ionSlideWillChange)="onChangeSecondsSlide($event)">
+          <ion-slide *ngFor="let second of secondsArray; let i = index ;" class="tp-default-slide">
+            {{ second }}
+          </ion-slide>
+        </ion-slides>
+      </ion-col>
+
+      <ion-col size="1" class="tp-colon" *ngIf="meridianArray?.length > 0">
+        <ion-label>:</ion-label>
+      </ion-col>
+      <ion-col *ngIf="meridianArray?.length > 0">
+        <ion-slides #sliderMeridian pager="false" [options]="slideOptsMeridian" (ionSlideWillChange)="onChangeMeridianSlide($event)">
+          <ion-slide *ngFor="let meridian of meridianArray; let i = index ;" class="tp-default-slide">
+            {{ meridian }}
+          </ion-slide>
+        </ion-slides>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>
+
+<ion-footer [ngClass]="{'isReady': isReady}">
+  <ion-toolbar>
+    <ion-grid no-padding>
+      <ion-row no-padding [ngClass]="mainObj?.btnCloseSetInReverse ? 'dp-btn-set-close-in-reverse' : ''">
+        <ion-col size="6" no-padding>
+          <ion-button class="ion-button" expand="{{mainObj?.btnProperties?.expand}}" fill="{{mainObj?.btnProperties?.fill}}"
+            size="{{mainObj?.btnProperties?.size}}" color="{{mainObj?.btnProperties?.color}}" disabled="{{mainObj?.btnProperties?.disabled}}"
+            strong="{{mainObj?.btnProperties?.strong}}" (click)="closeIonicTimePickerModal()">
+            {{mainObj?.closeLabel}}
+          </ion-button>
+        </ion-col>
+        <ion-col size="6" no-padding>
+          <ion-button class="ion-button" expand="{{mainObj?.btnProperties?.expand}}" fill="{{mainObj?.btnProperties?.fill}}"
+            size="{{mainObj?.btnProperties?.size}}" color="{{mainObj?.btnProperties?.color}}" disabled="{{mainObj?.btnProperties?.disabled}}"
+            strong="{{mainObj?.btnProperties?.strong}}" (click)="setIonicTimePickerTime()">
+            {{mainObj?.setLabel}}
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-footer>

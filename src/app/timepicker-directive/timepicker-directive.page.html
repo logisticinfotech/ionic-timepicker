@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>TimePicker Directive</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-item>
+    <ion-input [(ngModel)]="myTime1" [liIonic4Timepicker]="timePickerObj"></ion-input>
+  </ion-item>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-input [(ngModel)]="myTime2" [liIonic4Timepicker]="timePickerObj"></ion-input>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
