@@ -1,25 +1,25 @@
 import { Component, OnInit, forwardRef, Input, ElementRef, Renderer } from '@angular/core';
 import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
 import { ModalController } from '@ionic/angular';
-import { Ionic4TimepickerModalComponent } from './ionic4-timepicker-modal/ionic4-timepicker-modal.component';
+import { IonicTimepickerModalComponent } from './ionic-timepicker-modal/ionic-timepicker-modal.component';
 
 const noop = () => {
 };
 
 export const CUSTOM_INPUT_CONTROL_VALUE_ACCESSOR: any = {
   provide: NG_VALUE_ACCESSOR,
-  useExisting: forwardRef(() => Ionic4TimepickerComponent),
+  useExisting: forwardRef(() => IonicTimepickerComponent),
   multi: true,
 };
 
 @Component({
-  selector: 'li-ionic4-timepicker',
-  templateUrl: './ionic4-timepicker.component.html',
-  styleUrls: ['./ionic4-timepicker.component.scss'],
+  selector: 'li-ionic-timepicker',
+  templateUrl: './ionic-timepicker.component.html',
+  styleUrls: ['./ionic-timepicker.component.scss'],
   providers: [CUSTOM_INPUT_CONTROL_VALUE_ACCESSOR]
 })
 
-export class Ionic4TimepickerComponent implements OnInit, ControlValueAccessor {
+export class IonicTimepickerComponent implements OnInit, ControlValueAccessor {
 
   @Input() inputTimeConfig: any;
 
@@ -86,8 +86,8 @@ export class Ionic4TimepickerComponent implements OnInit, ControlValueAccessor {
     }
 
     const myTimePickerModal = await this.modalCtrl.create({
-      component: Ionic4TimepickerModalComponent,
-      cssClass: 'li-ionic4-timePicker',
+      component: IonicTimepickerModalComponent,
+      cssClass: 'li-ionic-timepicker',
       componentProps: { 'objConfig': this.inputTimeConfig, 'selectedTime': this.selectedTime }
     });
     await myTimePickerModal.present();

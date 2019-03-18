@@ -18,11 +18,11 @@
       "dom"
     ],
     "paths": {
-      "ionic4-timepicker": [
-        "dist/ionic4-timepicker"
+      "ionic-timepicker": [
+        "dist/ionic-timepicker"
       ],
-      "ionic4-timepicker/*": [
-        "dist/ionic4-timepicker/*"
+      "ionic-timepicker/*": [
+        "dist/ionic-timepicker/*"
       ]
     }
   }

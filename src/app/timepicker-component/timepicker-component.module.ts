@@ -6,8 +6,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
 import { TimepickerComponentPage } from './timepicker-component.page';
-// import { Ionic4TimepickerModule } from '../../../projects/ionic4-timepicker/src/lib/ionic4-timepicker.module';
-import { Ionic4TimepickerModule } from 'ionic4-timepicker';
+// import { IonicTimepickerModule } from '../../../projects/ionic-timepicker/src/lib/ionic-timepicker.module';
+import { IonicTimepickerModule } from 'ionic-timepicker';
 
 const routes: Routes = [
   {
@@ -21,7 +21,7 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     IonicModule,
-    Ionic4TimepickerModule,
+    IonicTimepickerModule,
     RouterModule.forChild(routes)
   ],
   declarations: [TimepickerComponentPage]

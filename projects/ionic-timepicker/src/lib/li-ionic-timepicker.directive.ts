@@ -1,16 +1,16 @@
 import { Directive, HostListener, ElementRef, Renderer, Input, OnInit } from '@angular/core';
-import { Ionic4TimepickerModalComponent } from './ionic4-timepicker-modal/ionic4-timepicker-modal.component';
+import { IonicTimepickerModalComponent } from './ionic-timepicker-modal/ionic-timepicker-modal.component';
 import { ModalController } from '@ionic/angular';
 import { NgModel, NgControl } from '@angular/forms';
 
 @Directive({
-  selector: '[liIonic4Timepicker]',
-  exportAs: 'liIonic4Timepicker',
+  selector: '[liIonicTimepicker]',
+  exportAs: 'liIonicTimepicker',
   providers: [NgModel]
 })
-export class LiIonic4TimepickerDirective implements OnInit {
+export class LiIonicTimepickerDirective implements OnInit {
 
-  @Input('liIonic4Timepicker') inputTimeConfig: any;
+  @Input('liIonicTimepicker') inputTimeConfig: any;
 
   isModalOpen: any = false;
   closeIcon;
@@ -109,8 +109,8 @@ export class LiIonic4TimepickerDirective implements OnInit {
   async openTimePicker() {
     // console.log('open time picker modal calls');
     const myTimePickerModal = await this.modalCtrl.create({
-      component: Ionic4TimepickerModalComponent,
-      cssClass: 'li-ionic4-timePicker',
+      component: IonicTimepickerModalComponent,
+      cssClass: 'li-ionic-timepicker',
       componentProps: { 'objConfig': this.inputTimeConfig, 'selectedTime': this.selectedTime }
     });
     await myTimePickerModal.present();

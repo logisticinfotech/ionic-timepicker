@@ -8,12 +8,12 @@ import * as moment_ from 'moment';
 // const memo = memo_.Resolver;
 const moment = moment_;
 @Component({
-  selector: 'li-ionic4-timepicker-modal',
-  templateUrl: './ionic4-timepicker-modal.component.html',
-  styleUrls: ['./ionic4-timepicker-modal.component.scss']
+  selector: 'li-ionic-timepicker-modal',
+  templateUrl: './ionic-timepicker-modal.component.html',
+  styleUrls: ['./ionic-timepicker-modal.component.scss']
 })
 
-export class Ionic4TimepickerModalComponent {
+export class IonicTimepickerModalComponent {
 
   @ViewChild('sliderHours') sliderHours: IonSlides;
   @ViewChild('sliderMinutes') sliderMinutes: IonSlides;

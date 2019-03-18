@@ -180,33 +180,33 @@
         }
       }
     },
-    "ionic4-timepicker": {
-      "root": "projects/ionic4-timepicker",
-      "sourceRoot": "projects/ionic4-timepicker/src",
+    "ionic-timepicker": {
+      "root": "projects/ionic-timepicker",
+      "sourceRoot": "projects/ionic-timepicker/src",
       "projectType": "library",
       "prefix": "li",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
           "options": {
-            "tsConfig": "projects/ionic4-timepicker/tsconfig.lib.json",
-            "project": "projects/ionic4-timepicker/ng-package.json"
+            "tsConfig": "projects/ionic-timepicker/tsconfig.lib.json",
+            "project": "projects/ionic-timepicker/ng-package.json"
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/ionic4-timepicker/src/test.ts",
-            "tsConfig": "projects/ionic4-timepicker/tsconfig.spec.json",
-            "karmaConfig": "projects/ionic4-timepicker/karma.conf.js"
+            "main": "projects/ionic-timepicker/src/test.ts",
+            "tsConfig": "projects/ionic-timepicker/tsconfig.spec.json",
+            "karmaConfig": "projects/ionic-timepicker/karma.conf.js"
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "projects/ionic4-timepicker/tsconfig.lib.json",
-              "projects/ionic4-timepicker/tsconfig.spec.json"
+              "projects/ionic-timepicker/tsconfig.lib.json",
+              "projects/ionic-timepicker/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**"

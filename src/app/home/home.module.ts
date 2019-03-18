@@ -5,15 +5,15 @@ import { IonicModule } from '@ionic/angular';
 import { RouterModule } from '@angular/router';
 
 import { HomePage } from './home.page';
-// import { Ionic4TimepickerModule } from '../../../projects/ionic4-timepicker/src/lib/ionic4-timepicker.module';
-import { Ionic4TimepickerModule } from 'ionic4-timepicker';
+// import { IonicTimepickerModule } from '../../../projects/ionic-timepicker/src/lib/ionic-timepicker.module';
+import { IonicTimepickerModule } from 'ionic-timepicker';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    Ionic4TimepickerModule,
+    IonicTimepickerModule,
     RouterModule.forChild([
       {
         path: '',

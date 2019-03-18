@@ -10,13 +10,13 @@
 @import '~@ionic/angular/css/text-transformation.css';
 @import '~@ionic/angular/css/flex-utils.css';
 
-.li-ionic4-timePicker {
+.li-ionic-timepicker {
     .modal-wrapper {
-        max-height: 300px;
+        max-height: 276px;
         width: 310px;
         min-height: 0;
         border-radius: 0px;
-        --ion-color-primary: #f9a200; // This Variable used for the change of colour ionic4-timepicker only.
+        --ion-color-primary: #f9a200; // This Variable used for the change of colour ionic-timepicker only.
         // --ion-color-primary-tint: rgb(214, 153, 153); // This Variable changes the tint colour of background when click button.
 
         ion-button {
@@ -26,9 +26,9 @@
             // button customization css write here...
         }
 
-        @media (min-width: 768px) {
-            width: 350px;
-            height: 40%;
-        }
+        // @media (min-width: 768px) {
+        //     width: 310px;
+        //     height: 40%;
+        // }
     }
 }

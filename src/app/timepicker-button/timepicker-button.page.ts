@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
-import { Ionic4TimepickerModule } from 'ionic4-timepicker';
-import { Ionic4TimepickerModalComponent } from 'ionic4-timepicker';
+import { IonicTimepickerModule } from 'ionic-timepicker';
+import { IonicTimepickerModalComponent } from 'ionic-timepicker';
 
 @Component({
   selector: 'app-timepicker-button',
@@ -47,8 +47,8 @@ export class TimepickerButtonPage implements OnInit {
 
   async openTimePicker() {
     const timePickerModal = await this.modalCtrl.create({
-      component: Ionic4TimepickerModalComponent,
-      cssClass: 'li-ionic4-timePicker',
+      component: IonicTimepickerModalComponent,
+      cssClass: 'li-ionic-timepicker',
       componentProps: { 'objConfig': this.timePickerObj }
       // componentProps: { 'objConfig': this.timePickerObj, 'selectedTime': this.selectedTime }
       // `selectedTime` attribute sets your time in timePicker.
