@@ -1,5 +1,5 @@
 
-# Ionic4 TimePicker
+# Ionic TimePicker
 
 Please check this blog for documentation [this link](https://www.logisticinfotech.com/blog/ionic-timepicker-component)
 

@@ -11,8 +11,8 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "build_lib": "ng build ionic-timepicker",
-    "copy-license": "cp ./LICENSE ./dist/ionic4-datepicker",
-    "copy-readme": "cp ./README.md ./dist/ionic4-datepicker",
+    "copy-license": "cp ./LICENSE ./dist/ionic-timepicker",
+    "copy-readme": "cp ./README.md ./dist/ionic-timepicker",
     "copy-files": "npm run copy-license && npm run copy-readme",
     "npm_pack": "cd dist/ionic-timepicker && npm pack",
     "package": "npm run build_lib && npm run copy-files && npm run npm_pack"
