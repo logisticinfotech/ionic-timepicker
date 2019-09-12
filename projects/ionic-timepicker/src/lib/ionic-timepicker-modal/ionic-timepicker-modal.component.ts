@@ -1,9 +1,10 @@
 
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, OnInit, OnDestroy } from '@angular/core';
 import { NavParams, ModalController, IonSlides } from '@ionic/angular';
 import { Observable } from 'rxjs';
 
 import * as moment_ from 'moment';
+import { IonicTimepickerService } from '../ionic-timepicker.service';
 
 // const memo = memo_.Resolver;
 const moment = moment_;
@@ -13,7 +14,7 @@ const moment = moment_;
   styleUrls: ['./ionic-timepicker-modal.component.scss']
 })
 
-export class IonicTimepickerModalComponent {
+export class IonicTimepickerModalComponent implements OnInit, OnDestroy {
 
   @ViewChild('sliderHours') sliderHours: IonSlides;
   @ViewChild('sliderMinutes') sliderMinutes: IonSlides;
@@ -70,9 +71,18 @@ export class IonicTimepickerModalComponent {
 
   constructor(
     private navParams: NavParams,
-    private modalCtrl: ModalController
+    private modalCtrl: ModalController,
+    private timePickerService: IonicTimepickerService
   ) {
     this.inItTimePicker().subscribe();
+  }
+
+  ngOnInit() {
+    this.timePickerService.isModalOpen = true;
+  }
+
+  ngOnDestroy() {
+    this.timePickerService.isModalOpen = false;
   }
 
   ionViewDidEnter() {
@@ -80,7 +90,7 @@ export class IonicTimepickerModalComponent {
     // this.inItTimePicker();
   }
 
-  inItTimePicker() : Observable<any> {
+  inItTimePicker(): Observable<any> {
     const myObservable = new Observable(observer => {
       if (this.navParams.get('selectedTime')) {
         console.log('Selected time =>', this.navParams.get('selectedTime'));
@@ -94,14 +104,12 @@ export class IonicTimepickerModalComponent {
       this.setMeridianArray(this.mainObj.timeFormat);
 
       // setTimeout(() => {
-        this.isReady = true;
+      this.isReady = true;
       // }, 100);
 
       observer.complete();
     });
-
     return myObservable;
-
   }
 
 
@@ -192,37 +200,37 @@ export class IonicTimepickerModalComponent {
     // console.log('charZeroInLocale : ' + charZeroInLocale);
     if (this.mainObj.timeFormat.indexOf('H') >= 0) {
       formateArray.push('H');
-      let hourString = this.hoursArray[this.sliderHoursActiveIndex];
+      const hourString = this.hoursArray[this.sliderHoursActiveIndex];
       // hourString = hourString.replace(/^0+/, '');
       timeArray.push(hourString);
     }
     if (this.mainObj.timeFormat.indexOf('h') >= 0) {
       formateArray.push('h');
-      let hourString = this.hoursArray[this.sliderHoursActiveIndex];
+      const hourString = this.hoursArray[this.sliderHoursActiveIndex];
       // hourString = hourString.replace(/^0+/, '');
       timeArray.push(hourString);
     }
     if (this.mainObj.timeFormat.indexOf('k') >= 0) {
       formateArray.push('k');
-      let hourString = this.hoursArray[this.sliderHoursActiveIndex];
+      const hourString = this.hoursArray[this.sliderHoursActiveIndex];
       // hourString = hourString.replace(/^0+/, '');
       timeArray.push(hourString);
     }
     if (this.mainObj.timeFormat.indexOf('m') >= 0) {
       formateArray.push('m');
-      let minString = this.minutesArray[this.sliderMinutesActiveIndex];
+      const minString = this.minutesArray[this.sliderMinutesActiveIndex];
       // minString = minString.replace(/^0+/, '');
       timeArray.push(minString);
     }
     if (this.mainObj.timeFormat.indexOf('s') >= 0) {
       formateArray.push('s');
-      let secString = this.secondsArray[this.sliderSecondsActiveIndex];
+      const secString = this.secondsArray[this.sliderSecondsActiveIndex];
       // secString = secString.replace(/^0+/, '');
       timeArray.push(secString);
     }
     if (this.mainObj.timeFormat.indexOf('a') >= 0 || this.mainObj.timeFormat.indexOf('A') >= 0) {
       formateArray.push('a');
-      let meridianString = this.meridianArray[this.sliderMeridianActiveIndex].toLowerCase();
+      const meridianString = this.meridianArray[this.sliderMeridianActiveIndex].toLowerCase();
       timeArray.push(meridianString);
     }
 
@@ -239,27 +247,27 @@ export class IonicTimepickerModalComponent {
     const obj = moment().startOf('date');
     if (timeFormat.indexOf('HH') >= 0) {
       this.hoursArray = this.initHoursArray(obj, 23, 'HH');
-      this.slideOptsHours.initialSlide = this.momentObj.locale('en').format('HH');
+      this.slideOptsHours.initialSlide = Number(this.momentObj.locale('en').format('HH'));
 
     } else if (timeFormat.indexOf('H') >= 0) {
       this.hoursArray = this.initHoursArray(obj, 23, 'H');
-      this.slideOptsHours.initialSlide = this.momentObj.locale('en').format('H');
+      this.slideOptsHours.initialSlide = Number(this.momentObj.locale('en').format('H'));
 
     } else if (timeFormat.indexOf('hh') >= 0) {
       this.hoursArray = this.initHoursArray(obj.add(1, 'hours'), 11, 'hh');
-      this.slideOptsHours.initialSlide = this.momentObj.locale('en').format('hh') - 1;
+      this.slideOptsHours.initialSlide = Number(this.momentObj.locale('en').format('hh') - 1);
 
     } else if (timeFormat.indexOf('h') >= 0) {
       this.hoursArray = this.initHoursArray(obj.add(1, 'hours'), 11, 'h');
-      this.slideOptsHours.initialSlide = this.momentObj.locale('en').format('h') - 1;
+      this.slideOptsHours.initialSlide = Number(this.momentObj.locale('en').format('h') - 1);
 
     } else if (timeFormat.indexOf('kk') >= 0) {
       this.hoursArray = this.initHoursArray(obj.add(1, 'hours'), 23, 'kk');
-      this.slideOptsHours.initialSlide = this.momentObj.locale('en').format('kk') - 1;
+      this.slideOptsHours.initialSlide = Number(this.momentObj.locale('en').format('kk') - 1);
 
     } else if (timeFormat.indexOf('k') >= 0) {
       this.hoursArray = this.initHoursArray(obj.add(1, 'hours'), 23, 'k');
-      this.slideOptsHours.initialSlide = this.momentObj.locale('en').format('k') - 1;
+      this.slideOptsHours.initialSlide = Number(this.momentObj.locale('en').format('k') - 1);
     }
     // console.log('hours array =>', this.hoursArray);
   }

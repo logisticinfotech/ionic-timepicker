@@ -1,6 +1,6 @@
 {
   "name": "@logisticinfotech/ionic-timepicker",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "ionic-timepicker inspired by rajeshwar patlolla ionic1 timepicker",
   "keywords": ["ionic-timepicker", "ionic", "ionie4-timepicker", "ionic-time-picker", "time picker", "timepicker", "timepicker-component", "Ionic-timepicker-component", "ion-timepicker", "component", "time", "Picker", "Angular"],
   "license": "SEE LICENSE IN LICENSE",
@@ -10,8 +10,6 @@
   },
   "homepage": "https://www.logisticinfotech.com/blog/ionic-timepicker-component",
   "peerDependencies": {
-    "@angular/common": "^7.1.0",
-    "@angular/core": "^7.1.0",
     "moment": "^2.24.0"
   }
 }

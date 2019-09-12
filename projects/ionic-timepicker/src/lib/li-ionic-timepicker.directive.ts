@@ -1,7 +1,8 @@
-import { Directive, HostListener, ElementRef, Renderer, Input, OnInit } from '@angular/core';
+import { Directive, HostListener, ElementRef, Input, OnInit, Renderer2 } from '@angular/core';
 import { IonicTimepickerModalComponent } from './ionic-timepicker-modal/ionic-timepicker-modal.component';
 import { ModalController } from '@ionic/angular';
 import { NgModel, NgControl } from '@angular/forms';
+import { IonicTimepickerService } from './ionic-timepicker.service';
 
 @Directive({
   selector: '[liIonicTimepicker]',
@@ -12,7 +13,6 @@ export class LiIonicTimepickerDirective implements OnInit {
 
   @Input('liIonicTimepicker') inputTimeConfig: any;
 
-  isModalOpen: any = false;
   closeIcon;
   selectedTime: any;
 
@@ -21,7 +21,8 @@ export class LiIonicTimepickerDirective implements OnInit {
     public ngModel: NgModel,
     public control: NgControl,
     public el: ElementRef,
-    public renderer: Renderer
+    public renderer: Renderer2,
+    private timePickerService: IonicTimepickerService
   ) { }
 
   ngOnInit() {
@@ -97,12 +98,11 @@ export class LiIonicTimepickerDirective implements OnInit {
   // }
 
   @HostListener('ionFocus')
-  onFocus() {
-    // console.log('on focus of component =>', this.inputTimeConfig);
-    if (!this.isModalOpen) {
-      this.isModalOpen = true;
-      this.openTimePicker();
+  public onFocus() {
+    if (this.timePickerService.isModalOpen) {
+      return;
     }
+    this.openTimePicker();
   }
 
   // open time picker
@@ -117,7 +117,6 @@ export class LiIonicTimepickerDirective implements OnInit {
 
     myTimePickerModal.onDidDismiss()
       .then((data) => {
-        this.isModalOpen = false;
         // console.log(data);
         if (data.data && data.data.time) {
           this.selectedTime = data.data.time;
