@@ -16,10 +16,10 @@ const moment = moment_;
 
 export class IonicTimepickerModalComponent implements OnInit, OnDestroy {
 
-  @ViewChild('sliderHours') sliderHours: IonSlides;
-  @ViewChild('sliderMinutes') sliderMinutes: IonSlides;
-  @ViewChild('sliderSeconds') sliderSeconds: IonSlides;
-  @ViewChild('sliderMeridian') sliderMeridian: IonSlides;
+  @ViewChild('sliderHours', { static: false }) sliderHours: IonSlides;
+  @ViewChild('sliderMinutes', { static: false }) sliderMinutes: IonSlides;
+  @ViewChild('sliderSeconds', { static: false }) sliderSeconds: IonSlides;
+  @ViewChild('sliderMeridian', { static: false }) sliderMeridian: IonSlides;
 
   hoursArray: any = [];
   minutesArray: any = [];
