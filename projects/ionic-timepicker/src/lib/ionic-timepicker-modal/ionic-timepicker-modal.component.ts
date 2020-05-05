@@ -115,17 +115,35 @@ export class IonicTimepickerModalComponent implements OnInit, OnDestroy {
 
   // get slider hours active index
   onChangeHoursSlide(event) {
-    this.sliderHoursActiveIndex = event.target.swiper.realIndex;
+    if (event.target.swiper.previousIndex === 0 && this.selectedTime === undefined) {
+      this.sliderHoursActiveIndex = event.target.swiper.realIndex;
+  } else  if( event.target.swiper.previousIndex === 0){
+      this.sliderHoursActiveIndex = event.target.swiper.realIndex - event.target.swiper.loopedSlides;
+  } else {
+      this.sliderHoursActiveIndex = event.target.swiper.realIndex;
+  }
   }
 
   // get slider minutes active index
   onChangeMinutesSlide(event) {
-    this.sliderMinutesActiveIndex = event.target.swiper.realIndex;
+    if (event.target.swiper.previousIndex === 0 && this.selectedTime === undefined) {
+      this.sliderMinutesActiveIndex = event.target.swiper.realIndex;
+  } else  if( event.target.swiper.previousIndex === 0){
+      this.sliderMinutesActiveIndex = event.target.swiper.realIndex - event.target.swiper.loopedSlides;
+  } else {
+      this.sliderMinutesActiveIndex = event.target.swiper.realIndex;
+  }
   }
 
   // get slider seconds active index
   onChangeSecondsSlide(event) {
-    this.sliderSecondsActiveIndex = event.target.swiper.realIndex;
+    if (event.target.swiper.previousIndex === 0 && this.selectedTime === undefined) {
+      this.sliderSecondsActiveIndex = event.target.swiper.realIndex;
+  } else  if( event.target.swiper.previousIndex === 0){
+      this.sliderSecondsActiveIndex = event.target.swiper.realIndex - event.target.swiper.loopedSlides;
+  } else {
+      this.sliderSecondsActiveIndex = event.target.swiper.realIndex;
+  }
   }
 
   // get slider seconds active index
