@@ -93,7 +93,7 @@ export class IonicTimepickerModalComponent implements OnInit, OnDestroy {
   inItTimePicker(): Observable<any> {
     const myObservable = new Observable(observer => {
       if (this.navParams.get('selectedTime')) {
-        console.log('Selected time =>', this.navParams.get('selectedTime'));
+        // console.log('Selected time =>', this.navParams.get('selectedTime'));
         this.selectedTime = this.navParams.get('selectedTime');
       }
       this.mainObj = this.initTimePickerObject(this.navParams.get('objConfig'));
@@ -117,7 +117,7 @@ export class IonicTimepickerModalComponent implements OnInit, OnDestroy {
   onChangeHoursSlide(event) {
     if (event.target.swiper.previousIndex === 0 && this.selectedTime === undefined) {
       this.sliderHoursActiveIndex = event.target.swiper.realIndex;
-  } else  if( event.target.swiper.previousIndex === 0){
+  } else  if ( event.target.swiper.previousIndex === 0 && event.target.swiper.realIndex !== 0) {
       this.sliderHoursActiveIndex = event.target.swiper.realIndex - event.target.swiper.loopedSlides;
   } else {
       this.sliderHoursActiveIndex = event.target.swiper.realIndex;
@@ -128,7 +128,7 @@ export class IonicTimepickerModalComponent implements OnInit, OnDestroy {
   onChangeMinutesSlide(event) {
     if (event.target.swiper.previousIndex === 0 && this.selectedTime === undefined) {
       this.sliderMinutesActiveIndex = event.target.swiper.realIndex;
-  } else  if( event.target.swiper.previousIndex === 0){
+  } else  if ( event.target.swiper.previousIndex === 0 && event.target.swiper.realIndex !== 0) {
       this.sliderMinutesActiveIndex = event.target.swiper.realIndex - event.target.swiper.loopedSlides;
   } else {
       this.sliderMinutesActiveIndex = event.target.swiper.realIndex;
@@ -139,7 +139,7 @@ export class IonicTimepickerModalComponent implements OnInit, OnDestroy {
   onChangeSecondsSlide(event) {
     if (event.target.swiper.previousIndex === 0 && this.selectedTime === undefined) {
       this.sliderSecondsActiveIndex = event.target.swiper.realIndex;
-  } else  if( event.target.swiper.previousIndex === 0){
+  } else  if ( event.target.swiper.previousIndex === 0 && event.target.swiper.realIndex !== 0) {
       this.sliderSecondsActiveIndex = event.target.swiper.realIndex - event.target.swiper.loopedSlides;
   } else {
       this.sliderSecondsActiveIndex = event.target.swiper.realIndex;
