@@ -16,10 +16,10 @@ const moment = moment_;
 
 export class IonicTimepickerModalComponent implements OnInit, OnDestroy {
 
-  @ViewChild('sliderHours') sliderHours: IonSlides;
-  @ViewChild('sliderMinutes') sliderMinutes: IonSlides;
-  @ViewChild('sliderSeconds') sliderSeconds: IonSlides;
-  @ViewChild('sliderMeridian') sliderMeridian: IonSlides;
+  @ViewChild('sliderHours', { static: false }) sliderHours: IonSlides;
+  @ViewChild('sliderMinutes', { static: false }) sliderMinutes: IonSlides;
+  @ViewChild('sliderSeconds', { static: false }) sliderSeconds: IonSlides;
+  @ViewChild('sliderMeridian', { static: false }) sliderMeridian: IonSlides;
 
   hoursArray: any = [];
   minutesArray: any = [];
@@ -93,7 +93,7 @@ export class IonicTimepickerModalComponent implements OnInit, OnDestroy {
   inItTimePicker(): Observable<any> {
     const myObservable = new Observable(observer => {
       if (this.navParams.get('selectedTime')) {
-        console.log('Selected time =>', this.navParams.get('selectedTime'));
+        // console.log('Selected time =>', this.navParams.get('selectedTime'));
         this.selectedTime = this.navParams.get('selectedTime');
       }
       this.mainObj = this.initTimePickerObject(this.navParams.get('objConfig'));
@@ -115,17 +115,35 @@ export class IonicTimepickerModalComponent implements OnInit, OnDestroy {
 
   // get slider hours active index
   onChangeHoursSlide(event) {
-    this.sliderHoursActiveIndex = event.target.swiper.realIndex;
+    if (event.target.swiper.previousIndex === 0 && this.selectedTime === undefined) {
+      this.sliderHoursActiveIndex = event.target.swiper.realIndex;
+  } else  if ( event.target.swiper.previousIndex === 0 && event.target.swiper.realIndex !== 0) {
+      this.sliderHoursActiveIndex = event.target.swiper.realIndex - event.target.swiper.loopedSlides;
+  } else {
+      this.sliderHoursActiveIndex = event.target.swiper.realIndex;
+  }
   }
 
   // get slider minutes active index
   onChangeMinutesSlide(event) {
-    this.sliderMinutesActiveIndex = event.target.swiper.realIndex;
+    if (event.target.swiper.previousIndex === 0 && this.selectedTime === undefined) {
+      this.sliderMinutesActiveIndex = event.target.swiper.realIndex;
+  } else  if ( event.target.swiper.previousIndex === 0 && event.target.swiper.realIndex !== 0) {
+      this.sliderMinutesActiveIndex = event.target.swiper.realIndex - event.target.swiper.loopedSlides;
+  } else {
+      this.sliderMinutesActiveIndex = event.target.swiper.realIndex;
+  }
   }
 
   // get slider seconds active index
   onChangeSecondsSlide(event) {
-    this.sliderSecondsActiveIndex = event.target.swiper.realIndex;
+    if (event.target.swiper.previousIndex === 0 && this.selectedTime === undefined) {
+      this.sliderSecondsActiveIndex = event.target.swiper.realIndex;
+  } else  if ( event.target.swiper.previousIndex === 0 && event.target.swiper.realIndex !== 0) {
+      this.sliderSecondsActiveIndex = event.target.swiper.realIndex - event.target.swiper.loopedSlides;
+  } else {
+      this.sliderSecondsActiveIndex = event.target.swiper.realIndex;
+  }
   }
 
   // get slider seconds active index

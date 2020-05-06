@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
-import { IonicTimepickerModule } from 'ionic-timepicker';
-import { IonicTimepickerModalComponent } from 'ionic-timepicker';
+// import { IonicTimepickerModule } from 'ionic-timepicker';
+import { IonicTimepickerModule } from '../../../projects/ionic-timepicker/src/lib/ionic-timepicker.module';
+// import { IonicTimepickerModalComponent } from 'ionic-timepicker';
+import { IonicTimepickerModalComponent } from '../../../projects/ionic-timepicker/src/lib/ionic-timepicker-modal/ionic-timepicker-modal.component';
 
 @Component({
   selector: 'app-timepicker-button',
