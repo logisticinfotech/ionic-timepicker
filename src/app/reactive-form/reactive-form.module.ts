@@ -6,8 +6,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
 import { ReactiveFormPage } from './reactive-form.page';
-// import { IonicTimepickerModule } from '../../../projects/ionic-timepicker/src/lib/ionic-timepicker.module';
-import { IonicTimepickerModule } from 'ionic-timepicker';
+import { IonicTimepickerModule } from '../../../projects/ionic-timepicker/src/lib/ionic-timepicker.module';
+// import { IonicTimepickerModule } from 'ionic-timepicker';
 
 const routes: Routes = [
   {
